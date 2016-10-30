@@ -2,7 +2,6 @@
 
 Restaurant front-end implementation in AngularJS for David Chu's China Bistro.
 
-Restaurant front-end implementation in AngularJS for David Chu's China Bistro.
 
 The app is hosted at https://qqttss.github.io/angular-restaurant
 
