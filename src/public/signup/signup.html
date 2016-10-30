@@ -1,0 +1,108 @@
+<div class="container">
+  <fieldset>
+      <legend>Registration</legend>
+      <form class="form-horizontal" name='signup.regForm' novalidate>
+
+        <div class="form-group">
+          <label for="firstname" class="col-sm-3 control-label">First Name</label>
+          <div class="col-sm-9">
+            <input type="text" name="firstname" id="firstname" placeholder="firstname"
+              class="form-control"
+              ng-model="signup.user.firstname"
+              required
+              auto-focus>
+            <span
+              ng-if="(signup.regForm.firstname.$error.required) && signup.regForm.firstname.$touched">
+              Firstname is required !
+            </span>
+          </div> 
+        </div>
+        
+        <div class="form-group">
+          <label for="lastname" class="col-sm-3 control-label">Last Name</label>
+          <div class="col-sm-9">
+            <input type="text" name="lastname" id="lastname" placeholder="lastname"
+              class="form-control"
+              ng-model="signup.user.lastname"
+              required>
+            <span
+              ng-if="(signup.regForm.lastname.$error.required) && signup.regForm.lastname.$touched">
+              Lastname is required !
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="col-sm-3 control-label">Phone</label>
+          <div class="col-sm-9">
+            <input type="text" name="phone" id="phone"
+              class="form-control"
+              placeholder="Phone ###-###-####"
+              ng-model="signup.user.phone"
+              pattern="(\d{3})-(\d{3})-(\d{4})"
+              required>
+            <span
+              ng-if="signup.regForm.phone.$invalid && 
+              signup.regForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="col-sm-3 control-label">Email</label>
+          <div class="col-sm-9">
+             <input type="email" name="email" id="email" placeholder="Email"
+              class="form-control"
+              ng-model="signup.user.email"
+              required>
+              <span
+                ng-if="signup.regForm.email.$invalid && signup.regForm.email.$touched">
+                Must be a valid email address: handle@domain format
+              </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="favoritedish" class="col-sm-3 control-label">
+            Favorite Dish
+          </label>
+          <div class="col-sm-9">
+            <input type="text" name="favoritedish" id="favoritedish"
+              class="form-control"
+              placeholder="Favorite Dish: A1, B2, C1, L1"
+              ng-model="signup.user.favoritedish"
+              menu-validation
+              required>
+            <span
+              ng-if="signup.regForm.favoritedish.$pending">
+              Searching . . .
+            </span>
+            <span
+              ng-if="signup.regForm.favoritedish.$error.validmenu && 
+              signup.regForm.favoritedish.$touched">
+              No such menu number exists.
+            </span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="mybutton" class="col-sm-3"></label>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-primary" id="mybutton"
+              ng-disabled="signup.regForm.$invalid"
+              ng-click="signup.submit()">Submit</button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="saveinfo" class="col-sm-3"></label>
+          <div class="col-sm-9" id="saveinfo"
+            ng-if="signup.saved && signup.regForm.$pristine" >
+            You information has been saved !
+          </div>
+        </div>
+      </form>
+    </fieldset>
+</div>
+    

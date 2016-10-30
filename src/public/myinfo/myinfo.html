@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div ng-if="myinfoctrl.submitted">
+				Your Name: 
+				{{ myinfoctrl.submittedInfo.firstname }}
+				{{ myinfoctrl.submittedInfo.lastname }}
+			</div>
+			<div ng-if="myinfoctrl.submitted">
+				Tel: 
+				{{ myinfoctrl.submittedInfo.phone }}
+			</div>
+			<div ng-if="myinfoctrl.submitted">
+				Email: 
+				{{ myinfoctrl.submittedInfo.email }}
+			</div>
+			<div ng-if="myinfoctrl.submitted">
+				Your favorite: {{myinfoctrl.favoriteDish.name}}
+			</div>
+			<br>
+			<div ng-if="!myinfoctrl.submitted">
+				Not signed up yet!
+				<a ui-sref="public.signup">&nbsp;Sign Up Now!</a>
+			</div>
+		</div>
+
+		<div class="menu-item-tile col-md-6">
+		  <div class="row">
+		    <div class="col-sm-5">
+		      <div class="menu-item-photo">
+		        <div>{{myinfoctrl.favoriteDish.short_name}}</div>
+		        <img class="img-responsive" width="250" height="150" ng-src="{{myinfoctrl.basePath}}/images/{{myinfoctrl.favoriteDish.short_name}}.jpg"
+		        alt="{{$ctrl.menuItem.name}}">
+		      </div>
+		      <div class="menu-item-price">{{myinfoctrl.favoriteDish.price_small | currency}}
+			      <span> {{myinfoctrl.favoriteDish.small_portion_name}}</span>
+			      {{myinfoctrl.favoriteDish.price_large | currency}} 
+			      <span>{{myinfoctrl.favoriteDishlarge_portion_name}}</span>
+		      </div>
+		    </div>
+		    <div class="menu-item-description col-sm-7">
+		      <h3 class="menu-item-title">{{myinfoctrl.favoriteDish.name}}</h3>
+		      <p class="menu-item-details">{{myinfoctrl.favoriteDish.description}}</p>
+		    </div>
+		  </div>
+		  <hr class="visible-xs">
+		</div>
+	</div>
+</div>
