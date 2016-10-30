@@ -1,0 +1,17 @@
+legend {
+	color: white;
+}
+
+input {
+	color: black;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.ng-touched.ng-valid {
+  background-color: #D9FFD9;
+}
+
+.ng-touched.ng-invalid {
+  background-color: #FFD9D9;
+}
